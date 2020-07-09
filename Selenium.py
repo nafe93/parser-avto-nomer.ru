@@ -12,12 +12,18 @@ class Chrome(Options):
         self.options.add_argument("window-size=1920,1080")
 
         type_of_os = platform.system()
+        print(type_of_os)
         if type_of_os == "Windows":
             self.driver = webdriver.Chrome(executable_path='./win/chromedriver.exe', chrome_options=self.options)
         elif type_of_os == "Linux":
-            self.driver = webdriver.Chrome(executable_path='./linux/chromedriver.exe', chrome_options=self.options)
+            self.options.add_argument('--headless')
+            self.options.add_argument('--disable-infobars')
+            self.options.add_argument('--disable-dev-shm-usage')
+            self.options.add_argument("--no-sandbox")
+            self.options.add_argument("--remote-debugging-port=9222")
+            self.driver = webdriver.Chrome(executable_path='./linux/chromedriver', chrome_options=self.options)
         elif type_of_os == "Mac":
-            self.driver = webdriver.Chrome(executable_path='./mac/chromedriver.exe', chrome_options=self.options)
+            self.driver = webdriver.Chrome(executable_path='./mac/chromedriver', chrome_options=self.options)
         else:
             print("Can not find type of your OS ...")
             exit()

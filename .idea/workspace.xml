@@ -33,17 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e60e5534-5e35-48ed-ba39-98abe65c1f0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14993632.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14993657.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14993666.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14993771.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14993857.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14993877.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14993891.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14994007.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14994057.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/de/nomer14994125.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,6 +245,7 @@
       <workItem from="1594282438759" duration="2624000" />
       <workItem from="1594285098927" duration="10532000" />
       <workItem from="1594296606177" duration="211000" />
+      <workItem from="1594296974663" duration="615000" />
     </task>
     <servers />
   </component>
@@ -307,10 +297,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594285506114" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1594296610288">
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1594296975808">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594296610288" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594296975808" />
     <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1594289925405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

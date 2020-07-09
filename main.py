@@ -185,7 +185,7 @@ class Window(QWidget):
         model.get_images()
         model.create_csv()
 
-        # self.q_button.setEnabled(True)
+        print("Finish Downloading ...")
 
 
 if __name__ == '__main__':  #
