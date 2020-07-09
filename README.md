@@ -14,3 +14,5 @@ To work with program:
 3. Click Download and waiting
 
 This program checked for work with windows 10 and ubuntu 18.04.
+
+Please unzip ./linux/chromedriver_linux64 to ./linux if happend problem with selenium in linux.
