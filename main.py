@@ -58,7 +58,7 @@ class Window(QWidget):
 
     def QLabel_start_page(self):
         label = QLabel("Start Page", self)
-        label.setText("Start Page")
+        label.setText("Start Page (0 - 9999)")
         label.move(2, 45)
 
     def QInput_start_page(self):
@@ -69,7 +69,7 @@ class Window(QWidget):
 
     def QLabel_limit(self):
         label = QLabel("Limit", self)
-        label.setText("Limit")
+        label.setText("Limit (1 - 999)")
         label.move(2, 90)
 
     def QInput_limit(self):
