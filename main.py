@@ -11,7 +11,7 @@ class Window(QWidget):
         # this for page
         self.country = ''
         self.page = 0
-        self.limit = 10
+        self.limit = 1
         # this for category search
         self.type = 0
         self.category = 0
@@ -36,7 +36,7 @@ class Window(QWidget):
         self.QLabel_type()
         self.q_select_type = self.QSelect_type()
 
-        self.QButton()
+        self.q_button = self.QButton()
 
         self.QWindow()
 
@@ -127,9 +127,10 @@ class Window(QWidget):
     def QButton(self):
         button = QPushButton("Download", self)
         button.setGeometry(158, 250, 75, 25)
-        button.clicked.connect(self.clickButton)
+        button.clicked.connect(self.click_button)
+        return button
 
-    def clickButton(self):
+    def click_button(self):
         # input text
         country = self.q_country.text()
         start_page = self.q_start_page.text()
@@ -177,11 +178,14 @@ class Window(QWidget):
         self.type = type_dict[type]
 
         from Parser import WebParsing
-        model = WebParsing(country=self.country, page=self.page, limit=self.limit, category=self.category, type=self.type)
+        model = WebParsing(country=self.country, page=self.page, limit=self.limit, category=self.category,
+                           type=self.type)
         model.parser_general_page()
         model.parser_image_page()
         model.get_images()
         model.create_csv()
+
+        # self.q_button.setEnabled(True)
 
 
 if __name__ == '__main__':  #
