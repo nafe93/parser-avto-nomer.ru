@@ -39,7 +39,6 @@ class WebParsing:
             exit()
 
     def _get_text(self):
-        "Check input"
         if len(self.url) == 0:
             print("Please input url")
             exit()
@@ -63,9 +62,11 @@ class WebParsing:
         cars_links = []
 
         for i in range(self.page, self.page + self.limit):
+
             self.page = i
             html = self._get_text()
             soup = BeautifulSoup(html, 'html.parser')
+
             if soup is not None:
                 for div in soup.find_all("div", {"class": "col-md-9"}):
                     print(f"Parsing general page number {self.page} is started ...")
@@ -74,6 +75,7 @@ class WebParsing:
                         if self.key in link:
                             if link not in cars_links:
                                 cars_links.append(link)
+
             else:
                 continue
 
@@ -84,9 +86,17 @@ class WebParsing:
 
         for link in self.links_to_download:
             print(f"Parsing image page number {link} is started ...")
-            url = self.url + link[1:]
+
+            if 'http' not in link:
+                url = self.url + link[1:]
+            else:
+                link = str(link).split('/')
+                link = '/' + link[3] + '/' + link[4]
+                url = self.url + link[1:]
+
             html = self._request(url)
             soup = BeautifulSoup(html, 'html.parser')
+
             if soup is not None:
                 number = soup.find("h1", {"class": "pull-left"}).contents[0].strip()
                 save_number_to_array.append([link, number])
@@ -101,24 +111,34 @@ class WebParsing:
         else:
             print("Check your URL")
             exit()
+
         folder = images_array[0][0].split('/')[1]
+
         if not os.path.exists('./' + folder):
             os.mkdir('./' + folder)
 
         chrome = Chrome()
 
         for link in images_array:
+
             image_name = '.' + link[0] + '.jpg'
             image_url = link[0].replace('nomer', 'foto')[1:]
             url = self.url + image_url
-            # try:
             html = self._request(url)
             soup = BeautifulSoup(html, 'html.parser')
+
             if soup is not None:
+
                 image_src = soup.find("img", {"class": "img-responsive center-block"})
                 link = image_src['src']
-                print(link, "download image to", image_name)
-                chrome.download_image(link, image_name)
+                code = requests.get(link).status_code
+
+                if code == 200 or code == 403:
+                    print(link, "download image to", image_name)
+                    chrome.download_image(link, image_name)
+                else:
+                    print("There is no link", link, "The error is:", code)
+
             else:
                 continue
 
@@ -132,8 +152,3 @@ class WebParsing:
         csv_name = csv_name_country + "_" + csv_name_time + "_" + str(np.random.randint(1000, size=1)[0]) + ".csv"
         df.to_csv(csv_name)
 
-# model = WebParsing()
-# model.parser_general_page()
-# model.parser_image_page()
-# model.get_images()
-# model.create_csv()
