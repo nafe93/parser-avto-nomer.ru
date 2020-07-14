@@ -8,18 +8,17 @@ from datetime import datetime
 
 
 class WebParsing:
-    """
-    url - string
-    country  - string
-    category - int
-    type     - int
-    page     - int
-    key - string for search
-    limit - int limit download
-    """
-
     def __init__(self, url='https://avto-nomer.ru/', country='de', category=0, type=0, page=0,
                  key='nomer', limit=1):
+        """
+        :param url: str
+        :param country: str
+        :param category: int
+        :param type: int
+        :param page: int
+        :param key: str
+        :param limit: int
+        """
         self.url = url
         self.country = country
         self.category = category
@@ -31,6 +30,10 @@ class WebParsing:
         self.csv = []
 
     def _request(self, url):
+        """
+        :param url: str
+        :return: bs4
+        """
         try:
             html = requests.get(url).content
             return html
@@ -39,6 +42,9 @@ class WebParsing:
             exit()
 
     def _get_text(self):
+        """
+        :return: str
+        """
         if len(self.url) == 0:
             print("Please input url")
             exit()
@@ -58,7 +64,10 @@ class WebParsing:
         html = self._request(url)
         return html
 
-    def parser_general_page(self):
+    def parse_general_page(self):
+        """
+        :return: -
+        """
         cars_links = []
 
         for i in range(self.page, self.page + self.limit):
@@ -81,7 +90,10 @@ class WebParsing:
 
         self.links_to_download = cars_links
 
-    def parser_image_page(self):
+    def parse_image_page(self):
+        """
+        :return: -
+        """
         save_number_to_array = []
 
         for link in self.links_to_download:
@@ -106,6 +118,9 @@ class WebParsing:
         self.csv = save_number_to_array
 
     def get_images(self):
+        """
+        :return: -
+        """
         if len(self.csv) > 0:
             images_array = np.array(self.csv)[:, :1]
         else:
@@ -145,10 +160,12 @@ class WebParsing:
         chrome.logout()
 
     def create_csv(self):
+        """
+        :return: -
+        """
         df = pd.DataFrame(self.csv, columns=["image_path", "code"])
         df.image_path = df.image_path + ".jpg"
         csv_name_country = df.image_path[0].split("/")[1]
         csv_name_time = str(datetime.date(datetime.now())).replace("-", "_")
         csv_name = csv_name_country + "_" + csv_name_time + "_" + str(np.random.randint(1000, size=1)[0]) + ".csv"
         df.to_csv(csv_name)
-

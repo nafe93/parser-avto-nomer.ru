@@ -5,12 +5,18 @@ import requests
 from bs4 import BeautifulSoup
 
 
-class GetFilters:
+class Filters:
     def __init__(self, country):
+        """
+        :param country: str
+        """
         self.url = "https://avto-nomer.ru/" + country + "/search"
         self.html = self.get_menu()
 
     def get_menu(self):
+        """
+        :return: bs4
+        """
         try:
             html = requests.get(self.url).content
             return html
@@ -19,6 +25,9 @@ class GetFilters:
             exit()
 
     def get_category_dict(self):
+        """
+        :return: dict
+        """
         category_dict = {}
         code = requests.get(self.url).status_code
 
@@ -43,6 +52,9 @@ class GetFilters:
         return category_dict
 
     def get_type_dict(self):
+        """
+        :return: dict
+        """
         type_dict = {}
         code = requests.get(self.url).status_code
 
@@ -66,5 +78,3 @@ class GetFilters:
                         type_dict[option_text] = option_value
 
         return type_dict
-
-
