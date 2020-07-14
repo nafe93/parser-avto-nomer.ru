@@ -1,20 +1,13 @@
-Parser 
-==========
-You must install this package before run program: 
--   pip install numpy
--   pip install pandas
--   pip install DateTime
--   pip install selenium 
--   pip install beautifulsoup4
--   pip install requests
-
 Install Chrome driver
 ========================
 - you can download chrome driver from https://chromedriver.chromium.org/
-- move the download zip file to ./project/operation_system 
+- move the download zip file to ./project/**your_operation_system** 
 - sudo apt install unzip
 - unzip package.zip
 - or unzip using any program 
+
+You must install this package before run program: 
+-   pip install -r requirements.txt
 
 To work with program:
 1. Run main.py
@@ -22,5 +15,3 @@ To work with program:
 3. Click Download and waiting
 
 This program checked for work with windows 10 and ubuntu 18.04.
-
-Please unzip ./linux/chromedriver_linux64 to ./linux if happend problem with selenium in linux.
