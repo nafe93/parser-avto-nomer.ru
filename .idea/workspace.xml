@@ -33,7 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e60e5534-5e35-48ed-ba39-98abe65c1f0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +68,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -254,18 +254,34 @@
       <workItem from="1594384277401" duration="35000" />
       <workItem from="1594648305717" duration="5688000" />
       <workItem from="1594654748797" duration="5155000" />
-      <workItem from="1594716480497" duration="1405000" />
+      <workItem from="1594716480497" duration="1652000" />
     </task>
+    <task id="LOCAL-00001" summary="change README.md">
+      <created>1594719719505</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594719719505</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="change README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="change README.md" />
   </component>
   <component name="WindowStateProjectService">
     <state x="728" y="351" width="463" height="484" key="#com.intellij.tools.ToolEditorDialog" timestamp="1594284669384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="728" y="351" width="463" height="484" key="#com.intellij.tools.ToolEditorDialog/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594284669384" />
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1594719715052">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="112" key="CommitChangelistDialog2/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594719715052" />
     <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1594384311086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -302,6 +318,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="354" key="GridCell.Tab.1.right/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594716453917" />
+    <state x="745" y="243" key="RollbackChangesDialog" timestamp="1594719785143">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="745" y="243" key="RollbackChangesDialog/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594719785143" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1594285506114">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -310,6 +330,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594716992963" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594719747950">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.60.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594719747950" />
     <state x="521" y="257" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1594377321508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
