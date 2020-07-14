@@ -29,6 +29,11 @@ class Chrome(Options):
             exit()
 
     def download_image(self, url, name):
+        """
+        :param url: str
+        :param name: str
+        :return: *jpg
+        """
         try:
             driver_url = self.driver.get(url)
             get_image_by_url = self.driver.find_elements_by_name('img')
@@ -37,6 +42,9 @@ class Chrome(Options):
             print("Check your internet connect or selenium chrome")
 
     def logout(self):
+        """
+        :return: -
+        """
         return self.driver.quit()
 
 

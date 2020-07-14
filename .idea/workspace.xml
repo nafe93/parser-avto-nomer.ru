@@ -32,8 +32,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e60e5534-5e35-48ed-ba39-98abe65c1f0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/chrome_driver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsers.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chrome_driver.py" beforeDir="false" afterPath="$PROJECT_DIR$/chrome_driver.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +254,7 @@
       <workItem from="1594384277401" duration="35000" />
       <workItem from="1594648305717" duration="5688000" />
       <workItem from="1594654748797" duration="5155000" />
-      <workItem from="1594716480497" duration="6600000" />
+      <workItem from="1594716480497" duration="6751000" />
     </task>
     <task id="LOCAL-00001" summary="change README.md">
       <created>1594719719505</created>
