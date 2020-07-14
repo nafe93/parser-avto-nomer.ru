@@ -8,6 +8,14 @@ You must install this package before run program:
 -   pip install beautifulsoup4
 -   pip install requests
 
+Install Chrome driver
+========================
+- you can download chrome driver from https://chromedriver.chromium.org/
+- move the download zip file to ./project/operation_system 
+- sudo apt install unzip
+- unzip package.zip
+- or unzip using any program 
+
 To work with program:
 1. Run main.py
 2. in Country put abbreviated country symbol for example (Germany = de)
