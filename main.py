@@ -2,11 +2,15 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore
 from PyQt5.QtGui import QIntValidator
+from Filtes import GetFilters
 
 
 class Window(QWidget):
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)
+
+        # model menu
+        self.my_menu = GetFilters('de')
 
         # this for page
         self.country = ''
@@ -41,7 +45,7 @@ class Window(QWidget):
         self.QWindow()
 
     def QWindow(self):
-        self.setWindowTitle("Parser")
+        self.setWindowTitle("Downloading image from avto-nomer.ru")
         self.setGeometry(self.left, self.top, self.width, self.height)
 
         self.show()
@@ -54,6 +58,8 @@ class Window(QWidget):
     def QInput_country(self):
         country = QLineEdit(self)
         country.setGeometry(2, 17, 395, 25)
+        country.setText("de")
+        country.textChanged.connect(self.change_country_text)
         return country
 
     def QLabel_start_page(self):
@@ -86,24 +92,10 @@ class Window(QWidget):
     def QSelect_category(self):
         category = QComboBox(self)
         category.setGeometry(2, 155, 395, 25)
-        category.addItems([
-            "-",
-            "Обычные",
-            "Кратковременные транзиты",
-            "Экспортные транзиты",
-            "Номера ТС, освобождённых от налога ('зелёные')",
-            "Номера классических ТС (тип 'H')",
-            "Сезонные номера",
-            "Дилерские номера (06-е)",
-            "Коллекционерские номера для олдтаймеров (07-е)",
-            "Официальные службы и консульства",
-            "Электрические ТС",
-            "Сезонные номера (Олдтаймеры)",
-            "Сменные номера",
-            "Региональные органы власти",
-            "Номера органов власти и федеральных ведомств",
-            "Военные"
-        ])
+        category.addItems(
+            self.my_menu.get_category_dict().keys()
+        )
+
         return category
 
     def QLabel_type(self):
@@ -114,14 +106,10 @@ class Window(QWidget):
     def QSelect_type(self):
         type = QComboBox(self)
         type.setGeometry(2, 200, 395, 25)
-        type.addItems([
-            "Выберите фон номера",
-            "однорядный номер",
-            "двухрядный номер",
-            "двухрядный номер (US-style)",
-            "однорядный номер (DIN)",
-            "двухрядный номер (DIN)",
-        ])
+        type.addItems(
+            self.my_menu.get_type_dict().keys()
+        )
+
         return type
 
     def QButton(self):
@@ -129,6 +117,24 @@ class Window(QWidget):
         button.setGeometry(158, 250, 75, 25)
         button.clicked.connect(self.click_button)
         return button
+
+    def QMessageBox_(self, text):
+        message_box = QMessageBox(self)
+        message_box.setText(text)
+        message_box.exec()
+
+    def change_country_text(self):
+        country = self.q_country.text()
+        if len(country) > 1:
+            self.my_menu = GetFilters(country)
+
+            self.q_select_category.clear()
+            self.q_select_category.addItems(self.my_menu.get_category_dict().keys())
+            self.q_select_category.update()
+
+            self.q_select_type.clear()
+            self.q_select_type.addItems(self.my_menu.get_type_dict().keys())
+            self.q_select_type.update()
 
     def click_button(self):
         # input text
@@ -139,33 +145,9 @@ class Window(QWidget):
         category = self.q_select_category.currentText()
         type = self.q_select_type.currentText()
         # dict
-        category_dict = {
-            "-": 0,
-            "Обычные": 1,
-            "Кратковременные транзиты": 2,
-            "Экспортные транзиты": 3,
-            "Номера ТС, освобождённых от налога ('зелёные')": 5,
-            "Номера классических ТС (тип 'H')": 6,
-            "Сезонные номера": 7,
-            "Дилерские номера (06-е)": 8,
-            "Коллекционерские номера для олдтаймеров (07-е)": 9,
-            "Официальные службы и консульства": 10,
-            "Электрические ТС": 11,
-            "Сезонные номера (Олдтаймеры)": 12,
-            "Сменные номера": 13,
-            "Региональные органы власти": 14,
-            "Номера органов власти и федеральных ведомств": 15,
-            "Военные": 16
-        }
+        category_dict = self.my_menu.get_category_dict()
 
-        type_dict = {
-            "Выберите фон номера": 0,
-            "однорядный номер": 1,
-            "двухрядный номер": 2,
-            "двухрядный номер (US-style)": 3,
-            "однорядный номер (DIN)": 4,
-            "двухрядный номер (DIN)": 5,
-        }
+        type_dict = self.my_menu.get_type_dict()
 
         if len(country) > 0:
             self.country = country
@@ -173,19 +155,23 @@ class Window(QWidget):
             self.page = int(start_page)
         if len(limit) > 0:
             self.limit = int(limit)
+        if len(category_dict) > 0 and len(type_dict) > 0:
+            self.category = category_dict[category]
+            self.type = type_dict[type]
 
-        self.category = category_dict[category]
-        self.type = type_dict[type]
+            from Parser import WebParsing
+            model = WebParsing(country=self.country, page=self.page, limit=self.limit, category=self.category,
+                               type=self.type)
+            model.parser_general_page()
+            model.parser_image_page()
+            model.get_images()
+            model.create_csv()
 
-        from Parser import WebParsing
-        model = WebParsing(country=self.country, page=self.page, limit=self.limit, category=self.category,
-                           type=self.type)
-        model.parser_general_page()
-        model.parser_image_page()
-        model.get_images()
-        model.create_csv()
+            print("Finish Downloading ...")
 
-        print("Finish Downloading ...")
+        else:
+            print("There is no page to download ...")
+            self.QMessageBox_("There is no page to download ...")
 
 
 if __name__ == '__main__':  #

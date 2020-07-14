@@ -48,11 +48,11 @@ class WebParsing:
 
         url = self.url + '/' + self.country + '/' + 'gallery.php?'
 
-        if self.category > 0:
+        if int(self.category) > 0:
             url += 'ctype=' + str(self.category) + '&'
-        if self.type > 0:
+        if int(self.type) > 0:
             url += 'fon=' + str(self.type) + '&'
-        if self.page > 0:
+        if int(self.page) > 0:
             url += 'start=' + str(self.page) + '&'
 
         html = self._request(url)
