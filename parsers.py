@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-from Selenium import Chrome
+from chrome_driver import Chrome
 from datetime import datetime
 
 
